@@ -1,4 +1,9 @@
 {
   "experimentalComponentTesting": true,
-  "componentFolder": "cypress/components"
+  "componentFolder": "cypress/components",
+  "env": {
+    "coverage": false
+  },
+  "viewportWidth": 400,
+  "viewportHeight": 400
 }
