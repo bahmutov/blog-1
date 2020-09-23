@@ -29,6 +29,8 @@
     "use-is-in-viewport": "^1.0.9"
   },
   "devDependencies": {
+    "cypress": "5.2.0",
+    "cypress-react-unit-test": "4.14.1",
     "prettier": "^2.0.5"
   },
   "scripts": {
