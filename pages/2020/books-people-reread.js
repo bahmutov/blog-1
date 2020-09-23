@@ -126,85 +126,88 @@ export async function getStaticProps() {
   };
 }
 
-const Page = withViews(({ tweets, views, books }) => (
-  <>
-    <Post tweets={tweets}>
-      <Header
-        title="Books people (re)read"
-        date="August 2, 2020"
-        timestamp="2020-08-03T01:38:52.500Z"
-        views={views}
-      />
-      <Head>
-        <meta property="og:title" content="Books people (re)read" />
-        <meta property="og:site_name" content="Guillermo Rauch's blog" />
-        <meta
-          property="og:description"
-          content="What books do people read more than once? That's what I asked on Twitter, which created an epic reading list"
+const Page = withViews(({ tweets, views, books }) => {
+  debugger;
+  return (
+    <>
+      <Post tweets={tweets}>
+        <Header
+          title="Books people (re)read"
+          date="August 2, 2020"
+          timestamp="2020-08-03T01:38:52.500Z"
+          views={views}
         />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@rauchg" />
-        <meta
-          property="og:image"
-          content="https://res.cloudinary.com/rauchg/image/upload/v1596418125/blog/og/26ED5322-8782-4B58-BDA1-43FC2018508F_ud9syf.png"
-        />
-      </Head>
+        <Head>
+          <meta property="og:title" content="Books people (re)read" />
+          <meta property="og:site_name" content="Guillermo Rauch's blog" />
+          <meta
+            property="og:description"
+            content="What books do people read more than once? That's what I asked on Twitter, which created an epic reading list"
+          />
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:site" content="@rauchg" />
+          <meta
+            property="og:image"
+            content="https://res.cloudinary.com/rauchg/image/upload/v1596418125/blog/og/26ED5322-8782-4B58-BDA1-43FC2018508F_ud9syf.png"
+          />
+        </Head>
 
-      <P>
-        Last night I{" "}
-        <a
-          href="https://twitter.com/rauchg/status/1289761175253602305"
-          target="_blank"
-        >
-          asked a question
-        </a>{" "}
-        on Twitter: what books have you read more than once?
-      </P>
+        <P>
+          Last night I{" "}
+          <a
+            href="https://twitter.com/rauchg/status/1289761175253602305"
+            target="_blank"
+          >
+            asked a question
+          </a>{" "}
+          on Twitter: what books have you read more than once?
+        </P>
 
-      <P>
-        As it turns out, it turned into a wonderful way of crowdsourcing a
-        compelling reading list from quite a few thoughtful people.
-      </P>
+        <P>
+          As it turns out, it turned into a wonderful way of crowdsourcing a
+          compelling reading list from quite a few thoughtful people.
+        </P>
 
-      <P>
-        I took the opportunity to{" "}
-        <a
-          href="https://www.notion.so/rauchg/fa0a337c38074aa9b30fdddc6ef4ec2e"
-          target="_blank"
-        >
-          dump the data on Notion
-        </a>{" "}
-        and write a Next.js page using the new stable{" "}
-        <a
-          href="https://nextjs.org/blog/next-9-5#stable-incremental-static-regeneration"
-          target="_blank"
-        >
-          Incremental Static Regeneration
-        </a>{" "}
-        to produce this list and keep it up to date automatically.
-      </P>
+        <P>
+          I took the opportunity to{" "}
+          <a
+            href="https://www.notion.so/rauchg/fa0a337c38074aa9b30fdddc6ef4ec2e"
+            target="_blank"
+          >
+            dump the data on Notion
+          </a>{" "}
+          and write a Next.js page using the new stable{" "}
+          <a
+            href="https://nextjs.org/blog/next-9-5#stable-incremental-static-regeneration"
+            target="_blank"
+          >
+            Incremental Static Regeneration
+          </a>{" "}
+          to produce this list and keep it up to date automatically.
+        </P>
 
-      <P>
-        Here are all the books, sorted by how frequently they were suggested.
-      </P>
-    </Post>
+        <P>
+          Here are all the books, sorted by how frequently they were suggested.
+        </P>
+      </Post>
 
-    <div className="books">
-      {books.map(book => {
-        return <Book key={book.URL} {...book} />;
-      })}
+      <div className="books">
+        {books.map(book => {
+          return <Book key={book.URL} {...book} />;
+        })}
 
-      <style jsx>{`
-        .books {
-          padding: 0 25px;
-          display: grid;
-          grid-gap: 1rem;
-          grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-        }
-      `}</style>
-    </div>
-  </>
-));
+        <style jsx>{`
+          .books {
+            padding: 0 25px;
+            display: grid;
+            grid-gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+          }
+        `}</style>
+      </div>
+    </>
+  );
+});
 
 export function Book({ URL, Name, Image, ASIN, Votes }) {
   let isInViewport, targetRef;
@@ -261,9 +264,10 @@ export function Book({ URL, Name, Image, ASIN, Votes }) {
         }
 
         .votes {
+          white-space: nowrap;
           text-decoration: none;
-          background: orange;
-          color: green;
+          background: blue;
+          color: white;
           font-size: 12px;
           margin-left: 10px;
           padding: 6px;
