@@ -264,7 +264,7 @@ export function Book({ URL, Name, Image, ASIN, Votes }) {
         }
 
         .votes {
-          white-space: nowrap;
+          // white-space: nowrap;
           text-decoration: none;
           background: blue;
           color: white;
