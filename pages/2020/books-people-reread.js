@@ -127,7 +127,6 @@ export async function getStaticProps() {
 }
 
 const Page = withViews(({ tweets, views, books }) => {
-  debugger;
   return (
     <>
       <Post tweets={tweets}>
